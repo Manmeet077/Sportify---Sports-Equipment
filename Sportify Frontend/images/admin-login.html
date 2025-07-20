@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login - SportifyX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>SportifyX Admin</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="admin-login.html">Admin Login</a>
+    </nav>
+  </header>
+
+  <section class="form-section">
+    <h2>Admin Login</h2>
+    <form onsubmit="handleAdminLogin(event)">
+      <input type="email" id="adminEmail" placeholder="Admin Email" required><br>
+      <input type="password" id="adminPassword" placeholder="Password" required><br>
+      <button type="submit" class="btn">Login as Admin</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SportifyX. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById("adminEmail").value;
+      const password = document.getElementById("adminPassword").value;
+
+      fetch("http://localhost:8080/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, role: "admin" })
+      })
+      .then(res => res.text())
+      .then(msg => {
+        alert(msg);
+        if (msg.toLowerCase().includes("success")) {
+          window.location.href = "admin.html"; // or dashboard
+        }
+      });
+    }
+  </script>
+</body>
+</html>

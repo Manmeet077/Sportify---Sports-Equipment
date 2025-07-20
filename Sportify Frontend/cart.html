@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart - SportifyX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>SportifyX</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="cart">
+    <h2>Your Cart</h2>
+    <table>
+      <tbody>
+        <!-- Cart items will be populated dynamically by script.js -->
+        <tr><th>Item</th><th>Quantity</th><th>Price</th><th>Total</th><th>Action</th></tr>
+      </tbody>
+    </table>
+    <br>
+    <button class="btn" onclick="placeOrder()">Place Order</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SportifyX. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
